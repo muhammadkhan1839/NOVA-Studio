@@ -1,0 +1,38 @@
+{
+  "name": "nova-studio-compiler",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run test:engine && npm run test:parity",
+    "test:engine": "node tests/run_engine_test.mjs",
+    "test:parity": "node tests/parity_test.mjs",
+    "test:c-backend": "cd c_backend && make check",
+    "test:gcc": "node tests/gcc_comparison_test.mjs",
+    "test:stress": "node tests/stress_test.mjs",
+    "test:all": "npm run test:engine && npm run test:c-backend && npm run test:parity && npm run test:gcc && npm run test:stress",
+    "backend:build": "cd c_backend && make",
+    "backend:server": "cd c_backend && ./nova_server",
+    "serve": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.0.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "vite": "^8.2.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
